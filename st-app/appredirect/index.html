@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Link Redirect</title>
+</head>
+<body>
+    <script>
+        // Universal Link to your app
+        var universalLink = "https://ghp-app.wisho2o.com";
+        
+        // Fallback OneLink
+        var oneLink = "https://onelink.to/g6rxhz";
+        
+        // Try to open the app
+        window.location = universalLink;
+
+        // Fallback to OneLink after a delay if app is not installed
+        setTimeout(function() {
+            window.location = oneLink;
+        }, 1000);
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Redirect</title>
+</head>
+<body>
+    <script>
+    (function() {
+        var appUrl = "stapp://"; // 您的應用程序 URL scheme
+        var oneLinkUrl = "https://onelink.to/g6rxhz"; // 您的 OneLink URL
+        
+        // 嘗試打開應用程序
+        window.location.href = appUrl;
+        
+        // 如果應用程序沒有打開,重定向到 OneLink
+        setTimeout(function() {
+            window.location.href = oneLinkUrl;
+        }, 1000); // 給予足夠的時間嘗試打開應用程序
+    })();
+    </script>
+</body>
+</html>

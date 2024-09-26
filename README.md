@@ -1,1 +1,1 @@
-# st-app-links
+# app-links

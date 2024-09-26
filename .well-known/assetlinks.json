@@ -1,0 +1,38 @@
+[
+	{
+		"relation": [
+			"delegate_permission/common.handle_all_urls"
+		],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.wishmobile.showtimelive.dev",
+			"sha256_cert_fingerprints": [
+				"9F:68:5A:3E:A9:00:12:A8:FA:1A:51:8D:E6:F5:27:7F:DE:8A:A8:2A:47:98:FD:EF:D7:A8:FB:E3:92:72:3B:BA"
+			]
+		}
+	},
+	{
+		"relation": [
+			"delegate_permission/common.handle_all_urls"
+		],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.wishmobile.showtimelive.prd",
+			"sha256_cert_fingerprints": [
+				"9F:68:5A:3E:A9:00:12:A8:FA:1A:51:8D:E6:F5:27:7F:DE:8A:A8:2A:47:98:FD:EF:D7:A8:FB:E3:92:72:3B:BA"
+			]
+		}
+	},
+	{
+		"relation": [
+			"delegate_permission/common.handle_all_urls"
+		],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.showtimelive.app",
+			"sha256_cert_fingerprints": [
+				"3B:31:5A:B3:C2:95:57:E4:6F:1E:AE:D9:DC:B2:F4:2D:7A:53:18:5A:B8:B7:84:D7:B1:86:B8:42:56:57:58:2B"
+			]
+		}
+	}
+]

@@ -7,8 +7,12 @@
         "paths": [ "/st-app/*" ]
       },
       {
-        "appID": "TEAM_ID.com.yourdomain.project2",
-        "paths": ["/project2/*"]
+        "appID": "JGD7V7Y6A2.com.showtimelive.app.uat",
+        "paths": [ "/st-app/*" ]
+      },
+      {
+        "appID": "JGD7V7Y6A2.com.showtimelive.app.stg",
+        "paths": [ "/st-app/*" ]
       }
     ]
   }

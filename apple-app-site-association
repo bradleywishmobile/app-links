@@ -3,8 +3,12 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.yourcompany.yourapp",
-        "paths": [ "/path1/*", "/path2/*" ]
+        "appID": "JGD7V7Y6A2.com.showtimelive.app",
+        "paths": [ "/st-app/*" ]
+      },
+      {
+        "appID": "TEAM_ID.com.yourdomain.project2",
+        "paths": ["/project2/*"]
       }
     ]
   }

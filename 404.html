@@ -9,6 +9,8 @@
             window.location.replace('/apple-app-site-association');
         } else if (path === '/.well-known/assetlinks.json') {
             window.location.replace('/assetlinks.json');
+        } else if (path.startsWith('/st-app/appredirect')) {
+            window.location.replace('/st-app/' + window.location.search);
         }
     </script>
 </head>

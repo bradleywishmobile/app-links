@@ -3,16 +3,34 @@
     "apps": [],
     "details": [
       {
+        "appID": "JGD7V7Y6A2.com.wishmobile.showtimes.stg",
+        "paths": [
+          "/st-app/appredirect"
+        ]
+      },
+      {
+        "appID": "JGD7V7Y6A2.com.wishmobile.showtimes.uat",
+        "paths": [
+          "/st-app/appredirect"
+        ]
+      },
+      {
         "appID": "JGD7V7Y6A2.com.showtimelive.app",
-        "paths": [ "/st-app/*" ]
+        "paths": [
+          "/st-app/appredirect"
+        ]
       },
       {
         "appID": "JGD7V7Y6A2.com.showtimelive.app.uat",
-        "paths": [ "/st-app/*" ]
+        "paths": [
+          "/st-app/appredirect"
+        ]
       },
       {
         "appID": "JGD7V7Y6A2.com.showtimelive.app.stg",
-        "paths": [ "/st-app/*" ]
+        "paths": [
+          "/st-app/appredirect"
+        ]
       }
     ]
   }

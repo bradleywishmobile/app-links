@@ -6,21 +6,37 @@
     <title>App Redirect</title>
 </head>
 <body>
+    <p>Redirecting...</p>
+
     <script>
     (function() {
+        // 設置變量
         var urlParams = new URLSearchParams(window.location.search);
         var scheme = urlParams.get('scheme');
-        var oneLinkUrl = "https://your-onelink-url.com"; // 替換為您的 OneLink URL
+        var oneLinkUrl = "https://onelink.to/g6rxhz"; // 替換為您的實際 OneLink URL
+        var redirectDelay = 2000; // 2秒延遲,可以根據需要調整
 
+        // 主要重定向函數
         function handleRedirect() {
             if (scheme) {
                 var decodedScheme = decodeURIComponent(scheme);
+                console.log("嘗試打開應用: " + decodedScheme);
+                
+                // 嘗試打開應用
                 window.location.href = decodedScheme;
+
+                // 設置延遲跳轉到 OneLink
+                setTimeout(function() {
+                    console.log("應用可能未打開,重定向到 OneLink");
+                    window.location.href = oneLinkUrl;
+                }, redirectDelay);
             } else {
+                console.log("沒有 scheme 參數,直接跳轉到 OneLink");
                 window.location.href = oneLinkUrl;
             }
         }
 
+        // 執行重定向
         handleRedirect();
     })();
     </script>

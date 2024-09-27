@@ -10,28 +10,15 @@
     (function() {
         var urlParams = new URLSearchParams(window.location.search);
         var scheme = urlParams.get('scheme');
-        var oneLinkUrl = "https://onelink.to/g6rxhz"; // 替換為您的 OneLink URL
+        var oneLinkUrl = "https://your-onelink-url.com"; // 替換為您的 OneLink URL
 
         function handleRedirect() {
             if (scheme) {
                 var decodedScheme = decodeURIComponent(scheme);
-                // 提取 mission ID
-                var missionId = new URLSearchParams(new URL(decodedScheme).search).get('id');
-                
-                // 構建新的 URL
-                var newUrl = new URL(window.location.origin + '/st-app/appredirect');
-                if (missionId) {
-                    newUrl.searchParams.set('missionId', missionId);
-                }
-                
-                // 更新瀏覽器 URL,但不重新加載頁面
-                history.replaceState(null, '', newUrl);
-            }
-
-            // 設置一個超時,如果應用沒有打開,則重定向到 OneLink
-            setTimeout(function() {
+                window.location.href = decodedScheme;
+            } else {
                 window.location.href = oneLinkUrl;
-            }, 1500);
+            }
         }
 
         handleRedirect();

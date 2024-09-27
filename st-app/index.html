@@ -8,16 +8,36 @@
 <body>
     <script>
     (function() {
-        var appUrl = "showtimeliveapp://"; // 您的應用程序 URL scheme
-        var oneLinkUrl = "https://onelink.to/g6rxhz"; // 您的 OneLink URL
-        
-        // 嘗試打開應用程序
-        window.location.href = appUrl;
-        
-        // 如果應用程序沒有打開,重定向到 OneLink
-        setTimeout(function() {
-            window.location.href = oneLinkUrl;
-        }, 1000); // 給予足夠的時間嘗試打開應用程序
+        var urlParams = new URLSearchParams(window.location.search);
+        var scheme = urlParams.get('scheme');
+        var oneLinkUrl = "https://onelink.to/g6rxhz"; // 替換為您的 OneLink URL
+
+        function handleRedirect() {
+            if (scheme) {
+                var decodedScheme = decodeURIComponent(scheme);
+                // 提取 mission ID
+                var missionId = new URLSearchParams(new URL(decodedScheme).search).get('id');
+                
+                // 構建新的 URL
+                var newUrl = new URL(window.location.origin + window.location.pathname);
+                if (missionId) {
+                    newUrl.searchParams.set('missionId', missionId);
+                }
+                
+                // 更新瀏覽器 URL,但不重新加載頁面
+                history.replaceState(null, '', newUrl);
+
+                // 對於已安裝應用的用戶,這將觸發 Universal Links 或 App Links
+                // 對於未安裝應用的用戶,這不會有任何效果
+            }
+
+            // 設置一個超時,如果應用沒有打開,則重定向到 OneLink
+            setTimeout(function() {
+                window.location.href = oneLinkUrl;
+            }, 1500);
+        }
+
+        handleRedirect();
     })();
     </script>
 </body>

@@ -4,18 +4,31 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-        var path = window.location.pathname;
-        
-        // 定義需要重新導向的路徑數組
-        var redirectPaths = ['/st-app/', '/.well-known/'];
-        
-        // 檢查當前路徑是否匹配任何需要重新導向的路徑
-        for (var i = 0; i < redirectPaths.length; i++) {
-            if (path.startsWith(redirectPaths[i])) {
-                window.location.replace(path + window.location.search);
-                break; // 找到匹配後退出循環
+        (function() {
+            var path = window.location.pathname;
+            var search = window.location.search;
+            
+            // 定義需要重定向的路徑數組
+            var redirectPaths = ['/st-app/', '/another-path/', '/yet-another-path/'];
+            
+            // 特殊處理 .well-known 路徑
+            if (path.startsWith('/.well-known/')) {
+                // 對於 .well-known 路徑,不進行重定向
+                return;
             }
-        }
+            
+            // 檢查當前路徑是否匹配任何需要重定向的路徑
+            for (var i = 0; i < redirectPaths.length; i++) {
+                if (path.startsWith(redirectPaths[i])) {
+                    // 確保我們不會重定向到相同的 URL
+                    var targetPath = redirectPaths[i];
+                    if (path !== targetPath) {
+                        window.location.replace(targetPath + search);
+                    }
+                    break; // 找到匹配後退出循環
+                }
+            }
+        })();
     </script>
 </head>
 <body>

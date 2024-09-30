@@ -8,8 +8,9 @@
         if (path.startsWith('/st-app/')) {
             window.location.replace('/st-app/' + window.location.search);
         }
-        else
-            return;
+        else if (path.startsWith('/.well-known/')) {
+            window.location.replace('/.well-known/' + window.location.search);
+        }
     </script>
 </head>
 <body>

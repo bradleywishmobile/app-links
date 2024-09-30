@@ -1,16 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
     <script>
+    (function() {
         var path = window.location.pathname;
-        if (path.startsWith('/st-app/')) {
-            window.location.replace('/st-app/' + window.location.search);
+        var search = window.location.search;
+        
+        // 定義需要重定向的路徑數組
+        var redirectPaths = ['/st-app/', '/another-path/', '/yet-another-path/'];
+        
+        // 不處理 .well-known 路徑
+        if (path.startsWith('/.well-known/')) {
+            return;
         }
+        
+        // 檢查當前路徑是否匹配任何需要重定向的路徑
+        for (var i = 0; i < redirectPaths.length; i++) {
+            if (path.startsWith(redirectPaths[i])) {
+                // 確保我們不會重定向到相同的 URL
+                var targetPath = redirectPaths[i];
+                if (path !== targetPath) {
+                    window.location.replace(targetPath + search);
+                }
+                return; // 找到匹配後退出
+            }
+        }
+        
+        // 如果沒有匹配的重定向路徑,可以選擇重定向到首頁或顯示 404 信息
+        // window.location.replace('/'); // 取消註釋此行以重定向到首頁
+    })();
     </script>
 </head>
 <body>
-    <p>Redirecting...</p>
+    <h1>404 - Page Not Found</h1>
+    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    <p><a href="/">Go to Homepage</a></p>
 </body>
 </html>

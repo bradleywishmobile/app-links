@@ -1,5 +1,1 @@
-defaults:
-  - scope:
-      path: ".well-known"
-    values:
-      layout: null
+include: [".well-known"]
